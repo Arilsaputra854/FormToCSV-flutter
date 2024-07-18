@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:formtoexcel/formPage.dart';
+import 'package:formtocsv/formPage.dart';
 
 void main() {
   runApp(const MyApp());
@@ -13,7 +13,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       debugShowCheckedModeBanner: false,
-      title: 'Form To Excel',
+      title: 'Form To CSV',
       theme: ThemeData(
         colorScheme: ColorScheme.fromSeed(seedColor: Colors.blue),
         useMaterial3: true,
