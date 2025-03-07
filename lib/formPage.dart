@@ -6,7 +6,6 @@ import 'package:formtocsv/data.dart';
 import 'package:formtocsv/settingPage.dart';
 import 'package:shared_preferences/shared_preferences.dart';
 import 'package:to_csv/to_csv.dart' as exportCSV;
-import 'package:fluttertoast/fluttertoast.dart';
 
 class FormPage extends StatefulWidget {
   const FormPage({super.key});
@@ -182,7 +181,6 @@ class _FormPageState extends State<FormPage> {
   }
 
   deleteData(int index) {
-    Fluttertoast.showToast(msg: "data dihapus");
     listOfData.removeAt(index);
     clearPref();
     setState(() {
@@ -195,13 +193,10 @@ class _FormPageState extends State<FormPage> {
       listOfData.add(new Data(domisili, umur));
       sharedPreferences!.setString("data", jsonEncode(listOfData));
 
-      Fluttertoast.showToast(msg: "Data baru ditambahkan!");
       domisiliCont.clear();
       ageCont.clear();
       setState(() {});
-    } else {
-      Fluttertoast.showToast(msg: "Lengkapi kolom yang kosong!");
-    }
+    } 
   }
 
   void loadPreferences() async {
@@ -231,12 +226,8 @@ class _FormPageState extends State<FormPage> {
       if (data.isNotEmpty) {
         exportCSV.myCSV(header, data, fileName: "Data Domisili dan Umur");
       } else {
-        Fluttertoast.showToast(
-            msg: "Tidak bisa menyimpan CSV karena data kosong!");
       }
     } else {
-      Fluttertoast.showToast(
-          msg: "Tidak bisa menyimpan CSV karena data kosong!");
     }
   }
 

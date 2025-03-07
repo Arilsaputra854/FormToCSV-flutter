@@ -1,8 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:shared_preferences/shared_preferences.dart';
-import 'package:fluttertoast/fluttertoast.dart';
 
-class SettingPage extends StatelessWidget {
+
+import 'package:shared_preferences/shared_preferences.dart';class SettingPage extends StatelessWidget {
   const SettingPage({super.key});
 
   @override
@@ -22,7 +21,6 @@ class SettingPage extends StatelessWidget {
         child: ElevatedButton(
           onPressed: () async {
             await clearAllData(context);
-            Fluttertoast.showToast(msg: "Semua data telah dihapus!");
           },
           child: Text("Clear All Data", style: TextStyle(color: Colors.white),),
           style: ElevatedButton.styleFrom(backgroundColor: Colors.red),
